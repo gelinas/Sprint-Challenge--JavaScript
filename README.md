@@ -29,35 +29,39 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your team lead
 
-1. Describe the biggest difference between `.forEach` & `.map`.
+1. Describe the biggest difference between `.forEach` & `.map`
+
+.forEach loops through each element in an array and performs a function with it--- this could be pushing it to a new array, or it could be something completely different (pushing characters to a string, mutating the original array, etc).
+
+.map loops through each element in an array, performs a function, and pushes it to a new array.
 
 2. What is the difference between a function and a method?
 
+A function can be defined within any scope (global or block) and called within that scope.
+
+A method is defined within an object and can only be called by first referencing that object (or it's class/prototype children).
+
 3. What is closure?
+
+A closure is the lexical scope of a function. It is novel because when an inner function accesses variables outside of it's lexical scope (outside of its closure), that inner function will still have access to that variable even after both the inner and out function return. This can be manipulated to create a memory of the variable's new value or to create data privacy.
 
 4. Describe the four rules of the 'this' keyword.
 
+
+* 1. window/global binding: when in the global scope, 'this' refers to the entire environment. 'use strict' prevents issues that result from global binding
+* 2. implciit binding: when a function is called, the left of the dot is the 'this'. So any 'this' references in the function will look for the attributes in the object preceeding the dot.
+* 3. new binding: if a contructor function contains a method with 'this', and the constructor function is used to make a new object, and the method is called on the new object... the 'this' will refer to the attributes of the new object.
+* 4. Explicit binding: use .call(obj) and .apply(obj) to override the 'this' from the other principles, and set the attributes 'this' references to be the ones called/applied
+
 5. Why do we need super() in an extended class?
+
+super() is the syntactic corralary to 'Object.call(this, attributes);' which is the code required to establish inheritance. Since JavaScript classes are just 'syntactic sugar' over prototype methods and object inheritance, not using super in an extended class will prevent it from actually inheriting the parent class' properties.
 
 ## Project Set up
 
 Follow these steps to set up and work on your project:
 
-- [ ] Create a forked copy of this project.
-- [ ] Add TL as collaborator on Github.
-- [ ] Clone your OWN version of Repo (Not Lambda's by mistake!).
-- [ ] Create a new Branch on the clone: git checkout -b `<firstName-lastName>`.
-- [ ] Create a pull request before you start working on the project requirements.  You will continuously push your updates throughout the project.
-- [ ] You are now ready to build this project with your preferred IDE
-- [ ] Implement the project on your Branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
-
 Follow these steps for completing your project:
-
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo).
-- [ ] Add your team lead as a Reviewer on the Pull-request
-- [ ] TL then will count the HW as done by  merging the branch back into master.
-
 
 ## Minimum Viable Product
 
