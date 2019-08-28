@@ -6,6 +6,32 @@
   Create a constructor function named CuboidMaker that accepts properties for length, width, and height
 */
 
+// I found it more straightforward to create a constructor that took dimensions in directly as parameters, rather than an object. I made it both ways though.
+
+function CuboidMakerObjParam (attributes) {
+  this.length = attributes.length;
+  this.width = attributes.width;
+  this.height = attributes.height;
+}
+
+function CuboidMakerIntParam (length, width, height) {
+  this.length = length;
+  this.width = width;
+  this.height = height;
+}
+
+/*
+function GameObject(attributes) {
+  this.createdAt = attributes.createdAt;
+  this.name = attributes.name;
+  this.dimensions = attributes.dimensions;
+}
+
+GameObject.prototype.destroy = function () {
+  return `${this.name} was removed from the game`;
+};
+*/
+
 
 /* == Step 2: Volume Method ==
   Create a method using CuboidMaker's prototype that returns the volume of a given cuboid's length, width, and height
@@ -14,11 +40,28 @@
 */
 
 
+CuboidMakerObjParam.prototype.volume = function () {
+  return this.length * this.width * this.height;
+}
+
+CuboidMakerIntParam.prototype.volume = function () {
+  return this.length * this.width * this.height;
+}
+
+
 /* == Step 3: Surface Area Method ==
   Create another method using CuboidMaker's prototype that returns the surface area of a given cuboid's length, width, and height. 
 
   Formula for cuboid surface area of a cube: 2 * (length * width + length * height + width * height)
 */
+
+CuboidMakerObjParam.prototype.surfaceArea = function () {
+  return 2 * (this.length * this.width + this.length * this.height + this.width * this.height);
+}
+
+CuboidMakerIntParam.prototype.surfaceArea = function () {
+  return 2 * (this.length * this.width + this.length * this.height + this.width * this.height);
+}
 
 
 /* == Step 4: Create a new object that uses CuboidMaker ==
@@ -26,8 +69,19 @@
   Add properties and values of length: 4, width: 5, and height: 5 to cuboid.   
 */
 
-// Test your volume and surfaceArea methods by uncommenting the logs below:
-// console.log(cuboid.volume()); // 100
-// console.log(cuboid.surfaceArea()); // 130
+const cuboid = new CuboidMakerObjParam({
+  length: 4,
+  width: 5,
+  height: 5
+});
 
+const cuboidIntParam = new CuboidMakerIntParam(4, 5, 5);
+
+// Test your volume and surfaceArea methods by uncommenting the logs below:
+console.log(cuboid.volume()); // 100
+console.log(cuboid.surfaceArea()); // 130
+
+
+console.log(cuboidIntParam.volume()); // 100
+console.log(cuboidIntParam.surfaceArea()); // 130
 
